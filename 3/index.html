@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paint Application</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <h2>Simple Paint</h2>
+    Color: <input type="color" id="color">
+    Brush: <input type="range" id="size" min="1" max="20" value="5">
+    <button onclick="clearCanvas()">Clear</button>
+
+    <br><br>
+    <canvas id="paint" width="600" height="400"></canvas>
+    <script src="script.js"></script>
+    
+</body>
+</html>

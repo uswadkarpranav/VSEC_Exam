@@ -1,0 +1,43 @@
+body{
+    font-family: Arial;
+    margin: 0;
+    background: lightcoral;
+}
+
+nav{
+    background: #222;
+    padding: 15px;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+
+}
+form{
+    width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+}
+
+input, select, button{
+    display: block;
+    width: 300px;
+    padding: 8px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    
+}
+
+button{
+    background: green;
+    color: white;
+    border: none;
+    transition: 0.5s;
+
+}
+button:hover{
+    background-color: lightgreen;
+}

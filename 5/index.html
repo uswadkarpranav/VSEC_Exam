@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Result</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Student Result Management</h2>
+
+    <form id="studentForm">
+        <input id="name" placeholder="Name" required>
+        <input id="roll" placeholder="Roll Number" required>
+
+        <input type="number" id="m1" placeholder="Subject 1" min="0" max="100" required>
+        <input type="number" id="m2" placeholder="Subject 2" min="0" max="100" required>
+        <input type="number" id="m3" placeholder="Subject 3" min="0" max="100" required>
+        <input type="number" id="m4" placeholder="Subject 4" min="0" max="100" required>
+        <input type="number" id="m5" placeholder="Subject 5" min="0" max="100" required>
+        <button type="submit">Add Student</button>
+
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th><th>Roll</th><th>Total</th><th>Percentage</th>
+            </tr>
+        </thead>
+        <tbody id="records"></tbody>
+    </table>
+
+    <h3 id="topper">Topper: Not  available</h3>
+
+    <script src="script.js"></script>
+
+
+    
+</body>
+</html>
