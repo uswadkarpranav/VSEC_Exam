@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-do List</title>
+
+    <style>
+        /* Set font and align all text to the center */
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
+
+        /* Add spacing inside inputs and buttons */
+        input, button {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        /* Add space around each task */
+        li {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Heading of the application -->
+    <h2>My To-do List</h2>
+
+    <!-- Input field to enter a task -->
+    <input type="text" id="task" placeholder="Enter a task">
+
+    <!-- Call addTask() when the Add button is clicked -->
+    <button onclick="addTask()">Add</button>
+
+    <!-- Empty list where tasks will be displayed -->
+    <ul id="taskList"></ul>
+
+    <script>
+        // Function to add a new task
+        function addTask() {
+
+            // Get the task entered by the user
+            let task = document.getElementById("task").value;
+
+            // Check whether the input is empty or contains only spaces
+            if (task.trim() === "") {
+                alert("Please enter a task");
+                return; // Stop the function if no task is entered
+            }
+
+            // Create a new list item (<li>) for the task
+            let li = document.createElement("li");
+
+            // Add the task text inside the list item
+            li.appendChild(document.createTextNode(task));
+
+            // Create a new button for deleting the task
+            let btn = document.createElement("button");
+
+            // Set the button text to Delete
+            btn.innerHTML = "Delete";
+
+            // When Delete is clicked, remove this task
+            btn.onclick = function() {
+                li.remove();
+            };
+
+            // Add the Delete button inside the list item
+            li.appendChild(btn);
+
+            // Add the completed list item to the task list in HTML
+            document.getElementById("taskList").appendChild(li);
+
+            // Clear the input field after adding the task
+            document.getElementById("task").value = "";
+        }
+    </script>
+
+</body>
+</html>

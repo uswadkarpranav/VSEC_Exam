@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Result</title>
+    <style>
+        body{
+            font-family: Arial;
+            text-align: center;
+        }
+
+        input, button{
+            padding: 8px;
+            margin: 5px;
+        }
+        table{
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td{
+            border: 1px solid black;
+            padding: 8px;
+        }
+        th{
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <h2> Student Marks Management</h2>
+
+    <input type="text" id="name" placeholder="Student Name" required>
+    <input type="number" id="roll" placeholder="Roll No" required>
+    <input type="number" id="m1" placeholder="Sub1" required>
+    <input type="number" id="m2" placeholder="Sub2" required>
+    <input type="number" id="m3" placeholder="Sub3" required>
+
+    <br>
+    <button onclick="addStudent()">Add Student</button>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Total</th>
+            <th>Percentage</th>
+        </tr>
+        <tbody id="records"></tbody>
+    </table>
+    <h3 id="topper">Topper: None</h3>
+
+    <script>
+        let highest = -1;
+        function addStudent(){
+            let name = document.getElementById("name").value;
+            let rollNo = Number(document.getElementById("roll").value);
+            let m1 = Number(document.getElementById("m1").value);
+            let m2 = Number(document.getElementById("m2").value);
+            let m3 = Number(document.getElementById("m3").value);
+
+            if([m1, m2, m3].some(m => m<0 || m>100)){
+                alert("Enter marks between 0 to 100");
+                return;
+            }
+
+            let total = m1+m2+m3;
+            let percentage = total/3;
+
+            let row = document.createElement("tr");
+
+            row.innerHTML = 
+                "<td>" + name + "</td>"+
+                "<td>" + total + "</td>"+
+                "<td>" + percentage.toFixed(2) + "</td>";
+        
+            document.getElementById("records").appendChild(row);
+
+            if(total>highest){
+                highest = total;
+                document.getElementById("topper").innerHTML=
+                    "Topper: "+name+"("+total+"/300)"
+            }
+
+            document.getElementById("name").value = "";
+            document.getElementById("m1").value = "";
+            document.getElementById("m2").value = "";
+            document.getElementById("m3").value = "";
+        }
+    </script>
+    
+</body>
+</html>
